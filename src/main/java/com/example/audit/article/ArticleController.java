@@ -1,6 +1,5 @@
 package com.example.audit.article;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +23,7 @@ public class ArticleController {
     article.setContent(articleDto.getContent());
     String loggedInUsername = SecurityContextHolder.getContext().getAuthentication().getName();
     article.setCreatedBy(loggedInUsername);
-    article.setCreatedAt(LocalDateTime.now());
+    // article.setCreatedAt(LocalDateTime.now());
     return articleRepository.save(article);
   }
 
@@ -39,7 +38,7 @@ public class ArticleController {
     inDB.setContent(articleDto.getContent());
     String loggedInUsername = SecurityContextHolder.getContext().getAuthentication().getName();
     inDB.setModifiedBy(loggedInUsername);
-    inDB.setModifiedAt(LocalDateTime.now());
+    // inDB.setModifiedAt(LocalDateTime.now());
     return articleRepository.save(inDB);
   }
   
