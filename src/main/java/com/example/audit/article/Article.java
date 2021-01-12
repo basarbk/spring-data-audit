@@ -1,5 +1,7 @@
 package com.example.audit.article;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,6 +18,10 @@ public class Article {
   private long id;
 
   private String content;
+
+  private String createdBy;
+
+  private LocalDateTime createdAt;
 
   
 }

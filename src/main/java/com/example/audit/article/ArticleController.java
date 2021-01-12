@@ -1,8 +1,10 @@
 package com.example.audit.article;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,6 +22,9 @@ public class ArticleController {
   Article save(@RequestBody ArticleDTO articleDto){
     Article article = new Article();
     article.setContent(articleDto.getContent());
+    String loggedInUsername = SecurityContextHolder.getContext().getAuthentication().getName();
+    article.setCreatedBy(loggedInUsername);
+    article.setCreatedAt(LocalDateTime.now());
     return articleRepository.save(article);
   }
 
