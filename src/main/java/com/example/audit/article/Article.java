@@ -23,5 +23,9 @@ public class Article {
 
   private LocalDateTime createdAt;
 
+  private String modifiedBy;
+
+  private LocalDateTime modifiedAt;
+
   
 }

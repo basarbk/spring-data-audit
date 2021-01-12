@@ -37,6 +37,9 @@ public class ArticleController {
   Article update(@PathVariable long id, @RequestBody ArticleDTO articleDto){
     Article inDB = articleRepository.getOne(id);
     inDB.setContent(articleDto.getContent());
+    String loggedInUsername = SecurityContextHolder.getContext().getAuthentication().getName();
+    inDB.setModifiedBy(loggedInUsername);
+    inDB.setModifiedAt(LocalDateTime.now());
     return articleRepository.save(inDB);
   }
   
