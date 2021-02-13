@@ -1,4 +1,4 @@
-package com.example.audit.article;
+package com.example.audit.comment;
 
 import javax.persistence.Entity;
 
@@ -8,8 +8,8 @@ import lombok.Data;
 
 @Entity
 @Data
-public class Article extends Auditable{
-
-  private String content;
-
+public class Comment extends Auditable{
+  
+  private String comment;
+  
 }
